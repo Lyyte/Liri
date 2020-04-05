@@ -18,8 +18,8 @@ var spotify = new Spotify({
 });
 
 
-var identifier = process.argv[2]
-var action = process.argv[3]
+var identifier = process.argv[2];
+var action = process.argv.slice(3).join(" ");
 
 if (identifier === "spotify-this-song") {
     Music(action);
@@ -27,8 +27,11 @@ if (identifier === "spotify-this-song") {
 else if (identifier === "concert-this") {
     Concerts(action);
 }
+else if (identifier === "movie-this") {
+    Movies(action);
+}
 else {
-    console.log("try again")
+    console.log("try again");
 }
 
 function Music(action) {
@@ -65,3 +68,23 @@ function Concerts(action) {
         });
 }
 
+function Movies(action) {
+    axios.get("http://www.omdbapi.com/?apikey=42518777&t=" + action)
+        .then(function (data) {
+            var results = [
+                "Movie Title: " + data.data.Title,
+                "Year the movie came out: " + data.data.Year,
+                "IMDB Rating: " + data.data.Rated,
+                "Rotten Tomatoes Rating: " + data.data.Ratings[1].Value,
+                "Country movie was produced: " + data.data.Country,
+                "Language: " + data.data.Language,
+                "Plot of the movie: " + data.data.Plot,
+                "Actors in the movie: " + data.data.Actors,
+            ]
+            console.log(results);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+};
