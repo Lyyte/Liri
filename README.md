@@ -61,4 +61,4 @@ To create this app, I had to create 4 primary functions that would handle each o
 
 Here is a demo of how the app works: 
 
-![](GIF1.gif)
+![gif1](https://gph.is/g/4zq6bbL)
