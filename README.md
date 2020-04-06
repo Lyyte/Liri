@@ -61,4 +61,8 @@ To create this app, I had to create 4 primary functions that would handle each o
 
 Here is a demo of how the app works: 
 
-![gif1](https://gph.is/g/4zq6bbL)
+![venue](https://gph.is/g/apbj3je)
+![song blank](https://gph.is/g/Zxe7b76)
+![song](https://gph.is/g/apbj3je)
+![movies](https://gph.is/g/Zd73vBo)
+![dowhatitsays](https://gph.is/g/aQOlmlq)
