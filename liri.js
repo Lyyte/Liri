@@ -20,6 +20,7 @@ var spotify = new Spotify({
 
 var identifier = process.argv[2];
 var action = process.argv.slice(3).join(" ");
+var defaultmovie = "Mr. Robot";
 
 if (identifier === "spotify-this-song") {
     Music(action);
@@ -28,13 +29,23 @@ else if (identifier === "concert-this") {
     Concerts(action);
 }
 else if (identifier === "movie-this") {
+    if (!action) {
+        action = defaultmovie
+    }
     Movies(action);
+}
+else if (identifier === "do-what-it-says") {
+    Textfile(action);
 }
 else {
     console.log("try again");
 }
 
 function Music(action) {
+
+    if (!action) {
+        action = "The Sign"
+    }
 
     spotify.search(
         {
@@ -69,8 +80,10 @@ function Concerts(action) {
 }
 
 function Movies(action) {
+
     axios.get("http://www.omdbapi.com/?apikey=42518777&t=" + action)
         .then(function (data) {
+
             var results = [
                 "Movie Title: " + data.data.Title,
                 "Year the movie came out: " + data.data.Year,
@@ -83,8 +96,22 @@ function Movies(action) {
             ]
             console.log(results);
         })
+       
         .catch(function (error) {
             console.log(error);
         });
 
 };
+
+function Textfile() {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        data = data.split(",");
+        var identifier = data[0];
+        var action = data[1];
+
+        if (identifier === "spotify-this-song") {
+            Music(action);
+        };
+
+    });
+}; 
