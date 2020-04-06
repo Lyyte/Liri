@@ -37,4 +37,28 @@ LIRI bot recognizes four commands (inputs); If you are using node, remember to i
 
     * `do-what-it-says` allows you to pull information from the random.txt file, and will currently run `spotify-this-song` with the search inquiry of "I Want it That Way"
 
+### Technology
+
+Here is a list of the technologies that were used:
+
+* Node.js 
+* Javascript
+* API
+    * Spotify
+    * OMDB
+    * Bands in Town
+* NPM Modues
+    * Dotenv
+    * Axios
+    * Moment
+    * Node-Spotify-API
+
+### Development
+
+To create this app, I had to create 4 primary functions that would handle each of the four commands. To run the function, I needed the program to execute each function based on which input was provided in the terminal. This was done with an If/Else If/Else statement. For future development, I plan to incorporate more commands, such as pulling the weather/news, and replace my if statement with a switch statement. 
+
+### Demo Images
+
+Here is a demo of how the app works: 
+
 
